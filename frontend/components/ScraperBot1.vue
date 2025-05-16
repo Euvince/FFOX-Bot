@@ -6,43 +6,31 @@
       <form class="space-y-6">
         <div>
           <label class="block text-base text-gray-800 mb-1">Archive Url</label>
-          <input type="text" v-model="archiveUrl" class="w-full px-4 py-2 border border-gray-400 rounded" />
+          <input type="text" v-model="archiveUrl" class="w-full px-4 py-2 border border-gray-400 rounded text-black" />
         </div>
-
         <div>
           <label class="block text-sm text-gray-700 mb-1">Base Url</label>
           <p class="text-blue-600 text-sm">https://truecrimenews.com/</p>
         </div>
-
         <div>
-          <label class="block text-base text-gray-800 mb-1">Next Page/Button Selector</label>
-          <input type="text" v-model="nextPageSelector" class="w-full px-4 py-2 border border-gray-400 rounded" />
+          <label class="block text-base text-gray-800 mb-1">HTML Content</label>
+          <textarea type="text" rows="5" v-model="htmlContent" class="w-full px-4 py-2 border border-gray-400 rounded text-black" />
         </div>
-
         <div>
           <label class="block text-base text-gray-800 mb-1">Primary Keywords</label>
-          <input type="text" v-model="primaryKeywords" placeholder="seperate multiple by ';'" class="w-full px-4 py-2 border border-gray-400 rounded" />
+          <input type="text" v-model="primaryKeywords" placeholder="seperate multiple by ';'" class="w-full px-4 py-2 border border-gray-400 rounded text-black" />
         </div>
-
         <div>
           <label class="block text-base text-gray-800 mb-1">Secondary Keywords</label>
-          <input type="text" v-model="secondaryKeywords" placeholder="seperate multiple by ';'" class="w-full px-4 py-2 border border-gray-400 rounded" />
+          <input type="text" v-model="secondaryKeywords" placeholder="seperate multiple by ';'" class="w-full px-4 py-2 border border-gray-400 rounded text-black" />
         </div>
-
-        <div class="flex flex-col md:flex-row gap-6">
-          <div class="flex-1">
-            <label class="block text-base text-gray-800 mb-1">Date to start from</label>
-            <input type="date" v-model="startDate" class="w-full px-4 py-2 border border-gray-400 rounded" />
-          </div>
-          <div class="flex-1">
-            <label class="block text-base text-gray-800 mb-1">Date to end at</label>
-            <input type="date" v-model="endDate" class="w-full px-4 py-2 border border-gray-400 rounded" />
-          </div>
-        </div>
-
         <div class="flex flex-col sm:flex-row gap-4 pt-6">
-          <button type="button" class="bg-[#4ba3e3] text-white px-6 py-2 rounded hover:bg-[#368acc] transition">START BOT</button>
-          <button type="button" class="bg-white border border-[#4ba3e3] text-[#4ba3e3] px-6 py-2 rounded hover:bg-[#e6f0fa] transition">SHOW ALL RUNNING</button>
+          <button
+            @click="startBot"
+            type="button" class="bg-[#4ba3e3] text-white px-6 py-2 rounded hover:bg-[#368acc] transition cursor-pointer"
+          >
+            START BOT
+          </button>
         </div>
       </form>
     </div>
@@ -52,22 +40,18 @@
 
 <script setup>
     const archiveUrl = ref('')
-    const baseUrl = ref('https://truecrimenovs.com/')
-    const nextPageSelector = ref('')
+    const baseUrl = ref('https://example.com/')
+    const htmlContent = ref('')
     const primaryKeywords = ref('')
     const secondaryKeywords = ref('')
-    const startDate = ref('')
-    const endDate = ref('')
 
     const startBot = () => {
     console.log('Starting bot with configuration:', {
         archiveUrl: archiveUrl.value,
         baseUrl: baseUrl.value,
-        nextPageSelector: nextPageSelector.value,
+        htmlContent: htmlContent.value,
         primaryKeywords: primaryKeywords.value,
-        secondaryKeywords: secondaryKeywords.value,
-        startDate: startDate.value,
-        endDate: endDate.value
+        secondaryKeywords: secondaryKeywords.value
     })
     // Appel API pour déclencher une action
     }

@@ -1,5 +1,5 @@
 <template>
   <div>
-    <ScraperBot2 />
+    <ScraperBot1 />
   </div>
 </template>
