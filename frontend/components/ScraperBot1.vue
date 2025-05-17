@@ -5,12 +5,8 @@
 
       <form class="space-y-6">
         <div>
-          <label class="block text-base text-gray-800 mb-1">Archive Url</label>
-          <input type="text" v-model="archiveUrl" class="w-full px-4 py-2 border border-gray-400 rounded text-black" />
-        </div>
-        <div>
-          <label class="block text-sm text-gray-700 mb-1">Base Url</label>
-          <p class="text-blue-600 text-sm">https://truecrimenews.com/</p>
+          <label class="block text-base text-gray-800 mb-1">Base Url</label>
+          <input type="text" v-model="baseUrl" class="w-full px-4 py-2 border border-gray-400 rounded text-black" />
         </div>
         <div>
           <label class="block text-base text-gray-800 mb-1">HTML Content</label>
@@ -38,21 +34,19 @@
 </template>
 
 
-<script setup>
-    const archiveUrl = ref('')
+<script setup lang="ts">
     const baseUrl = ref('https://example.com/')
     const htmlContent = ref('')
     const primaryKeywords = ref('')
     const secondaryKeywords = ref('')
 
     const startBot = () => {
-    console.log('Starting bot with configuration:', {
-        archiveUrl: archiveUrl.value,
-        baseUrl: baseUrl.value,
-        htmlContent: htmlContent.value,
-        primaryKeywords: primaryKeywords.value,
-        secondaryKeywords: secondaryKeywords.value
-    })
+      console.log('Starting bot with configuration:', {
+          baseUrl: baseUrl.value,
+          htmlContent: htmlContent.value,
+          primaryKeywords: primaryKeywords.value,
+          secondaryKeywords: secondaryKeywords.value
+      })
     // Appel API pour déclencher une action
     }
 </script>
